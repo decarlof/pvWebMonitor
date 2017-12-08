@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="pvlist.xsl" ?>
+
+<!-- You can edit this file with a text editor -->
+
+<pvwatch version="1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="local_schema pvlist.xsd">
+	<!-- (update version if format of XML file changes) -->
+
+  <definition name="mne">
+  	one-word mnemonic reference used in python and xslt code
+  	(mne should be unique for each EPICS_PV)
+  </definition>
+  <definition name="PV">
+  	EPICS process variable name (must be used in only one EPICS_PV)
+  </definition>
+  <definition name="description">
+  	useful text informative to others
+  </definition>
+  <definition name="display_format">
+  	(optional, default="%s") PVs will be formatted for display with this string
+  </definition>
+  <definition name="_ignore_">
+  	(optional, default="false") this PV is ignored if value is not "false"
+  </definition>
+
+  <EPICS_PV PV="S:SRcurrentAI"			description="APS Storage Ring Current, mA"  	mne="sr_current"/>
+  <EPICS_PV PV="ID32ds:Energy"			description="32ID undulator energy, keV"  	mne="id_energy"/>
+  <EPICS_PV PV="32ida:BraggERdbkAO"		description="32ID monochromator energy, keV"  	mne="mono_energy"/>
+
+  <EPICS_PV PV="32idcTXM:TOD" 				description="TXM IOC current time"  	mne="txm_tod"/>
+  <EPICS_PV PV="32idcTXM:STARTTOD" 			description="TXM IOC boot time"  		mne="txm_starttod"/>
+  <EPICS_PV PV="32idcTXM:UPTIME" 			description="time TXM IOC running"  	mne="txm_uptime"/>
+  <EPICS_PV PV="32idcTXM:HOSTNAME"			description="TXM IOC host name" 		mne="txm_hostname"/>
+  <EPICS_PV PV="32idcTXM:ENGINEER"			description="TXM engineer" 				mne="txm_engineer"/>
+
+  <!--
+  These PVs won't display properly since they are a character *waveform* PVs.
+  Need to figure out how to handle this one properly.
+
+  <EPICS_PV PV="32idcTXM:ProposalNumber"	description="TXM Proposal Number" 				mne="ProposalNumber"/>
+  <EPICS_PV PV="32idcTXM:UserInfoUpdate"	description="TXM User Info Update date/time" 	mne="UserInfoUpdate"/>
+  -->
+
+
+  <EPICS_PV PV="32idcTXM:mxv:c1:m3.RBV"   description="TXM CCD Camera X readback"          mne="TXM_CCD_Cam_X_RBV"     display_format="%.3f"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m3.VAL"   description="TXM CCD Camera X target"            mne="TXM_CCD_Cam_X_VAL"     display_format="%.3f"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m3.DMOV"  description="TXM CCD Camera X motor done moving" mne="TXM_CCD_Cam_X_DMOV"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m4.RBV"   description="TXM CCD Camera Y readback"          mne="TXM_CCD_Cam_Y_RBV"     display_format="%.3f"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m4.VAL"   description="TXM CCD Camera Y target"            mne="TXM_CCD_Cam_Y_VAL"     display_format="%.3f"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m4.DMOV"  description="TXM CCD Camera Y motor done moving" mne="TXM_CCD_Cam_Y_DMOV"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m6.RBV"   description="TXM CCD Camera Z readback"      mne="TXM_CCD_Cam_Z_RBV"     display_format="%.3f"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m6.VAL"   description="TXM CCD Camera Z target"      mne="TXM_CCD_Cam_Z_VAL" display_format="%.3f"/>
+  <EPICS_PV PV="32idcTXM:mxv:c1:m6.DMOV"  description="TXM CCD Camera Z motor done moving" mne="TXM_CCD_Cam_Z_DMOV"/>
+
+  <EPICS_PV PV="32idcTXM:alldone" description="all motors done moving" mne="txm_motors_alldone"/>
+  <EPICS_PV PV="32idcTXM:moving" description="number of motors moving" mne="txm_motors_moving"/>
+
+</pvwatch>

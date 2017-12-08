@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <title>pvWebMonitor: EPICS process variables to be monitored and reported</title>
+  </head>
+  <body>
+    <h1>pvWebMonitor: EPICS process variables to be monitored and reported</h1>
+    <small>
+      <p>
+                	XML version: 
+                	1.0
+                	(update version if format of XML file changes)
+                </p>
+    </small>
+    <h2>definitions</h2>
+    <dl>
+      <dt>mne</dt>
+      <dd>
+  	one-word mnemonic reference used in python and xslt code
+  	(mne should be unique for each EPICS_PV)
+  </dd>
+      <dt>PV</dt>
+      <dd>
+  	EPICS process variable name (must be used in only one EPICS_PV)
+  </dd>
+      <dt>description</dt>
+      <dd>
+  	useful text informative to others
+  </dd>
+      <dt>display_format</dt>
+      <dd>
+  	(optional, default="%s") PVs will be formatted for display with this string
+  </dd>
+      <dt>_ignore_</dt>
+      <dd>
+  	(optional, default="false") this PV is ignored if value is not "false"
+  </dd>
+    </dl>
+    <table border="2">
+      <tr style="background-color: grey; color: white;">
+        <th>mne</th>
+        <th>PV</th>
+        <th>_ignore_</th>
+        <th>description</th>
+        <th>display_format</th>
+      </tr>
+      <tr>
+        <td>sr_current</td>
+        <td>S:SRcurrentAI</td>
+        <td/>
+        <td>APS Storage Ring Current, mA</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>id_energy</td>
+        <td>ID32ds:Energy</td>
+        <td/>
+        <td>32ID undulator energy, keV</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>mono_energy</td>
+        <td>32ida:BraggERdbkAO</td>
+        <td/>
+        <td>32ID monochromator energy, keV</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>txm_tod</td>
+        <td>32idcTXM:TOD</td>
+        <td/>
+        <td>TXM IOC current time</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>txm_starttod</td>
+        <td>32idcTXM:STARTTOD</td>
+        <td/>
+        <td>TXM IOC boot time</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>txm_uptime</td>
+        <td>32idcTXM:UPTIME</td>
+        <td/>
+        <td>time TXM IOC running</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>txm_hostname</td>
+        <td>32idcTXM:HOSTNAME</td>
+        <td/>
+        <td>TXM IOC host name</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>txm_engineer</td>
+        <td>32idcTXM:ENGINEER</td>
+        <td/>
+        <td>TXM engineer</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>TXM_CCD_Cam_X_RBV</td>
+        <td>32idcTXM:mxv:c1:m3.RBV</td>
+        <td/>
+        <td>TXM CCD Camera X readback</td>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>TXM_CCD_Cam_X_VAL</td>
+        <td>32idcTXM:mxv:c1:m3.VAL</td>
+        <td/>
+        <td>TXM CCD Camera X target</td>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>TXM_CCD_Cam_X_DMOV</td>
+        <td>32idcTXM:mxv:c1:m3.DMOV</td>
+        <td/>
+        <td>TXM CCD Camera X motor done moving</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>TXM_CCD_Cam_Y_RBV</td>
+        <td>32idcTXM:mxv:c1:m4.RBV</td>
+        <td/>
+        <td>TXM CCD Camera Y readback</td>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>TXM_CCD_Cam_Y_VAL</td>
+        <td>32idcTXM:mxv:c1:m4.VAL</td>
+        <td/>
+        <td>TXM CCD Camera Y target</td>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>TXM_CCD_Cam_Y_DMOV</td>
+        <td>32idcTXM:mxv:c1:m4.DMOV</td>
+        <td/>
+        <td>TXM CCD Camera Y motor done moving</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>TXM_CCD_Cam_Z_RBV</td>
+        <td>32idcTXM:mxv:c1:m6.RBV</td>
+        <td/>
+        <td>TXM CCD Camera Z readback</td>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>TXM_CCD_Cam_Z_VAL</td>
+        <td>32idcTXM:mxv:c1:m6.VAL</td>
+        <td/>
+        <td>TXM CCD Camera Z target</td>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>TXM_CCD_Cam_Z_DMOV</td>
+        <td>32idcTXM:mxv:c1:m6.DMOV</td>
+        <td/>
+        <td>TXM CCD Camera Z motor done moving</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>txm_motors_alldone</td>
+        <td>32idcTXM:alldone</td>
+        <td/>
+        <td>all motors done moving</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>txm_motors_moving</td>
+        <td>32idcTXM:moving</td>
+        <td/>
+        <td>number of motors moving</td>
+        <td/>
+      </tr>
+    </table>
+    <hr/>
+    <p>
+      <small>
+                        report page: <pre>pvlist.xsl</pre></small>
+    </p>
+  </body>
+</html>
