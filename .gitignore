@@ -1,1 +1,9 @@
 *.txt
+index.html
+livedata.html
+livedata1.png
+livedata2.png
+rawdata.html
+rawdata.xml
+.nfs*
+
