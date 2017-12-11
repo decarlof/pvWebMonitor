@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>32-ID-C Status</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- jQuery 3 -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="materialize.js"></script>
+
+    <script>
+    var pv = {}
+    $(document).ready(function() {
+      $('ul.tabs').tabs({swipeable:true,swipeGestures:true});
+      getData();
+      setInterval(function() {
+        getData()
+      },10000);
+    });
+    function getData() {
+      $.get("rawdata.xml",function(data) {
+        xml = $( data )
+        console.log(data,xml)
+        xml.find("pv").each(function() {
+          // Create object in pv with the ID as key
+          pv[$(this).find("id").text()] = {}
+
+          // Iterate over children of the pv and insert them into the object created above
+          $(this).children().each(function() {
+            pv[$(this).parent().find("id").text()][$(this)[0].nodeName] = $(this).text();
+          })
+        })
+        setTimeout(function() {
+          insertData();
+        },100);
+      })
+    }
+    function insertData() {
+      console.log(pv)
+    $("td[data-pv]").each(function() {
+    try {
+    console.log($(this))
+    console.log(pv[$(this).attr("data-pv").split("/")[0]][$(this).attr("data-pv").split("/")[1]])
+    var that = this
+    var val = pv[$(this).attr("data-pv").split("/")[0]][$(this).attr("data-pv").split("/")[1]];
+    
+    try {
+    var colorize = $(this).attr("data-colorize").split(",")
+    } catch(err) { var colorize = [] }
+    var found = false
+    for(var key in colorize) {
+      if(val == colorize[key].split(":")[0]) {
+        found = true
+        $(this).css("background-color",colorize[key].split(":")[1])
+      }
+    }
+    if(!found) {
+        $(this).css("background-color","")    
+    }
+
+    try {
+    var replaces = $(this).attr("data-replace").split(",")
+    } catch(err) {
+    var replaces = []
+    }
+        for(var key in replaces) {
+          if(val == replaces[key].split(":")[0]) {
+            val = replaces[key].split(":")[1]
+          }
+    }
+
+
+    
+    $(this).text(val)
+    } catch(err) {
+    }
+      });
+    }
+    $(function(){
+    setInterval(function(){
+    $("img").each(function(){
+    $(this).css("height",$(this).height())
+    $(this).attr("src",$(this).attr("src").split("?")[0]+"?d="+Date.now())
+    $(this).on('load',function(){$(this).css("height","")
+    });
+    });
+    },10000);
+    //^^^^^^ Interval in milliseconds
+    });
+    
+    </script>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      div.tabs-content.carousel  {
+        height: calc(100% - 48px);
+        position: absolute;
+      }
+      div.tabs-content.carousel div.page.carousel-item {
+        height: 100%;
+      }
+      div.row {
+        margin-bottom: 0px;
+      }
+      ul.tabs li.indicator {
+        top: 0px;
+        background-color: #01579b;
+      }
+      ul.tabs {
+        border-top: 1px solid rgba(1,87,155,0.5);
+        background-clip: padding-box;
+      }
+      table tr td {
+        padding: 3px 5px;
+        border-radius: 0px;
+      }
+      div.sebnavbar {
+        position: fixed;
+        bottom: 0px;
+      }
+      ul.tabs li.tab a {
+        color: #01579b !important;
+      }
+      div.title {
+        background-color: #01579b;
+        width: calc(100% + 22px);
+        margin-left: -11px;
+        height: 48px;
+        padding: 0px 22px;
+        color: white;
+        font-size: 14px;
+        line-height: 48px;
+      }
+      div.data {
+        height: calc(100% - 48px);
+        overflow-y: auto;
+        overflow-x: visible;
+      }
+    </style>
+ </head>
+ <body>
+   <div class="row">
+
+ <div id="test1" class="col s12 page">
+   <div class="title">Status</div>
+    <div class="data">
+     <table class="bordered">
+       <th colspan="2"> Source
+       </th>
+       <tr>
+         <td>Ring current</td>
+         <td data-pv="Current/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="SourceEnergy/description"></td>
+         <td data-pv="SourceEnergy/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="SourceGap/description"></td>
+         <td data-pv="SourceGap/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="Energy/description"></td>
+         <td data-pv="Energy/value"></td>
+       </tr>
+<!--       <tr>
+         <td data-pv="DCM_theta_fine/description"></td>
+         <td data-pv="DCM_theta_fine/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="DCM_chi/description"></td>
+         <td data-pv="DCM_chi/value"></td>
+       </tr>
+-->
+     </table>
+     <table class="bordered">
+       <th colspan="4"> Mono Feedback
+       </th>
+       <tr>
+         <td data-pv="FbStatus/description">Status</td>
+         <td data-pv="FbStatus/value" data-replace="1:On,0:Off" data-colorize="1:green,0:red">On</td>
+	 <td></td>
+       </tr>
+       <th colspan="4"> Shutters/Enclosures
+       </th>
+       <tr>
+	 <td data-pv="ACIS_general/value" data-replace="1:ACIS,0:ACIS" data-colorize="1:green,0:red">ACIS</td>
+	 <td>EPS</td>
+	 <td>Enclosure</td>
+	 <td>Shutter</td>
+       </tr>
+       <tr>
+         <td data-pv="idas/description" ></td>
+         <td data-pv="idb_eps/value" data-replace="1:OK,0:Trip" data-colorize="1:green,0:red">OK</td>
+         <td data-pv="idas/value" data-replace="1:Searched,0:Open" data-colorize="1:green,0:red">Searched</td>
+         <td data-pv="idab/value" data-replace="0:Closed,1:Open" data-colorize="1:green,0:red">Closed</td>
+       </tr>
+       <tr>
+         <td data-pv="idbs/description" ></td>
+         <td data-pv="idb_eps/value" data-replace="1:OK,0:Trip" data-colorize="1:green,0:red">OK</td>
+         <td data-pv="idbs/value" data-replace="1:Searched,0:Open" data-colorize="1:green,0:red">Searched</td>
+         <td data-pv="idbb/value" data-replace="1:Closed,0:Open" data-colorize="0:green,1:red">Closed</td>
+       </tr>
+     </table>
+     <table>
+       <th colspan="4"> Storage Ring Satus
+       </th>
+       <tr>
+       <td href="http://www.aps.anl.gov/aod/blops/plots/smallStatusPlot.png">
+          <img SRC="http://www.aps.anl.gov/aod/blops/plots/smallStatusPlot.png" alt="plot of storage ring" WIDTH="98%"/></td>
+
+       </tr>
+     </table>
+   </div>
+ </div>
+ <div id="test2" class="col s12 page">
+   <div class="title">Experiment</div>
+    <div class="data">
+     <table class="bordered">
+       <th colspan="2"> Counters
+       </th>
+       <tr>
+         <td data-pv="ionaa_des/value"></td>
+         <td data-pv="ionaa/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="ionbb_des/value"></td>
+         <td data-pv="ionbb/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="ioncc_des/value"></td>
+         <td data-pv="ioncc/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="iondd_des/value"></td>
+         <td data-pv="iondd/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="ionee_des/value"></td>
+         <td data-pv="ionee/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="ionff_des/value"></td>
+         <td data-pv="ionff/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="iongg_des/value"></td>
+         <td data-pv="iongg/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="ionhh_des/value"></td>
+         <td data-pv="ionhh/value"></td>
+       </tr>
+       <th colspan="2"> Motors
+       </th>
+       <tr>
+         <td data-pv="Diff_Two_Theta/description"></td>
+         <td data-pv="Diff_Two_Theta/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_Theta/description"></td>
+         <td data-pv="Diff_Theta/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_Chi/description"></td>
+         <td data-pv="Diff_Chi/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_Phi/description"></td>
+         <td data-pv="Diff_Phi/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_nu/description"></td>
+         <td data-pv="Diff_nu/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_mu/description"></td>
+         <td data-pv="Diff_mu/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_path/description"></td>
+         <td data-pv="Diff_path/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_patth/description"></td>
+         <td data-pv="Diff_patth/value"></td>
+      </tr>
+       <tr>
+         <td data-pv="Diff_peta/description"></td>
+         <td data-pv="Diff_peta/value"></td>
+      </tr>
+     </table>
+   </div>
+ </div>
+ <div id="test3" class="col s12 page">
+   <div class="title">Controllers</div>
+   <div class="data">
+     <table class="bordered">
+       <th colspan="2"> Lakeshore 340 (Displex)
+       </th>
+       <tr>
+         <td data-pv="LKS_TCS/description"></td>
+         <td data-pv="LKS_TCS/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS_TSS/description"></td>
+         <td data-pv="LKS_TSS/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS_SP/description"></td>
+         <td data-pv="LKS_SP/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS_HP/description"></td>
+         <td data-pv="LKS_HP/value"></td>
+       </tr>
+       <th colspan="2"> Lakeshore 336 (6T Magnet)
+       </th>
+       <tr>
+         <td data-pv="LKS336_INA/description"></td>
+         <td data-pv="LKS336_INA/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_INB/description"></td>
+         <td data-pv="LKS336_INB/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_INC/description"></td>
+         <td data-pv="LKS336_INC/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_IND/description"></td>
+         <td data-pv="LKS336_IND/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_SP1/description"></td>
+         <td data-pv="LKS336_SP1/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_SP2/description"></td>
+         <td data-pv="LKS336_SP2/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_HP1/description"></td>
+         <td data-pv="LKS336_HP1/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="LKS336_HP2/description"></td>
+         <td data-pv="LKS336_HP2/value"></td>
+       </tr>
+       <th colspan="2"> KEPKO
+       </th>
+       <tr>
+         <td data-pv="kepko_s_v/description"></td>
+         <td data-pv="kepko_s_v/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="kepko_read_v/description"></td>
+         <td data-pv="kepko_read_v/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="kepko_s_c/description"></td>
+         <td data-pv="kepko_s_c/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="kepko_read_c/description"></td>
+         <td data-pv="kepko_read_c/value"></td>
+       </tr>
+       <th colspan="2"> AMI 430 (Magnetic field)
+       </th>
+       <tr>
+         <td data-pv="AMI430_SP/description"></td>
+         <td data-pv="AMI430_SP/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="AMI430_Field/description"></td>
+         <td data-pv="AMI430_Field/value"></td>
+       </tr>
+       <tr>
+         <td data-pv="AMI430_SH/description"></td>
+         <td data-pv="AMI430_SH/value"></td>
+       </tr>
+     </table>
+   </div>
+ </div>
+ <div id="test4" class="col s12 page">
+   <div class="title">Data</div>
+    <div class="data">
+     <table class="bordered">
+       <tr>
+         <td>Filename</td>
+         <td data-pv="filename/value"></td>
+         <td></td>
+         <td></td>
+       </tr>
+       <tr>
+         <td>Current scan number</td>
+         <td data-pv="scan_n/value"></td>
+         <td></td>
+         <td></td>
+       </tr>
+     </table>
+     <table>
+       <th> Current scan
+       </th>
+       <tr>
+       <td colspan="4" href="">
+           <img SRC="livedata2.png" alt="Current Scan" WIDTH="98%"/>
+       </td>
+
+       </tr>
+     </table>
+     <table>
+       <th> Last scan
+       </th>
+       <tr>
+       <td colspan="4" href="">
+           <img SRC="livedata1.png" alt="Current Scan" WIDTH="98%"/>
+       </td>
+
+       </tr>
+     </table>
+     <table class="bordered">
+       <th colspan="4"> Position
+       </th>
+       <tr>
+         <td>H K L</td>
+         <td data-pv="hh/value"></td>
+         <td data-pv="kk/value"></td>
+         <td data-pv="ll/value"></td>
+       </tr>
+     </table>
+   </div>
+ </div>
+ <div class="col s12 sebnavbar">
+   <ul class="tabs">
+     <li class="tab col s3"><a href="#test3">Status</a></li>
+     <li class="tab col s3"><a href="#test2">Experiment</a></li>
+     <li class="tab col s3"><a href="#test1">Controllers</a></li>
+     <li class="tab col s3"><a href="#test4">Data</a></li>
+   </ul>
+ </div></div>
+ </body>
+ </html>
