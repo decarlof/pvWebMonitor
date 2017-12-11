@@ -4,57 +4,145 @@
 <!-- You can edit this file with a text editor -->
 
 <pvwatch version="1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="local_schema pvlist.xsd">
-	<!-- (update version if format of XML file changes) -->
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="local_schema pvlist.xsd">
+    <!-- (update version if format of XML file changes) -->
 
   <definition name="mne">
-  	one-word mnemonic reference used in python and xslt code
-  	(mne should be unique for each EPICS_PV)
+    one-word mnemonic reference used in python and xslt code
+    (mne should be unique for each EPICS_PV)
   </definition>
   <definition name="PV">
-  	EPICS process variable name (must be used in only one EPICS_PV)
+    EPICS process variable name (must be used in only one EPICS_PV)
   </definition>
   <definition name="description">
-  	useful text informative to others
+    useful text informative to others
   </definition>
   <definition name="display_format">
-  	(optional, default="%s") PVs will be formatted for display with this string
+    (optional, default="%s") PVs will be formatted for display with this string
   </definition>
   <definition name="_ignore_">
-  	(optional, default="false") this PV is ignored if value is not "false"
+    (optional, default="false") this PV is ignored if value is not "false"
   </definition>
 
-  <EPICS_PV PV="S:SRcurrentAI"			description="APS Storage Ring Current, mA"  	mne="sr_current"/>
-  <EPICS_PV PV="ID32ds:Energy"			description="32ID undulator energy, keV"  	mne="id_energy"/>
-  <EPICS_PV PV="32ida:BraggERdbkAO"		description="32ID monochromator energy, keV"  	mne="mono_energy"/>
+  <EPICS_PV PV="S:IOC:timeOfDayISO8601"     description="Date and Time"                     mne="DateTime"/>
+  <EPICS_PV PV="S:SRcurrentAI"              description="APS Storage Ring Current"   display_format="%.3f"       mne="Current"/>
+  <EPICS_PV PV="S:TopUpStatus"              description="APS Storage TopUp Status"   display_format="%.3f"       mne="TopUpStatus"/>
+  <EPICS_PV PV="ID32ds:Energy.VAL"          description="Undulator energy"           display_format="%.3f"       mne="SourceEnergy"/>
+  <EPICS_PV PV="ID32ds:Gap.VAL"             description="Undulator GAP"              display_format="%.3f"       mne="SourceGap"/>
+  <EPICS_PV PV="32ida:BraggEAO.VAL"         description="DCM energy"                 display_format="%.3f"       mne="Energy"/>
 
-  <EPICS_PV PV="32idcTXM:TOD" 				description="TXM IOC current time"  	mne="txm_tod"/>
-  <EPICS_PV PV="32idcTXM:STARTTOD" 			description="TXM IOC boot time"  		mne="txm_starttod"/>
-  <EPICS_PV PV="32idcTXM:UPTIME" 			description="time TXM IOC running"  	mne="txm_uptime"/>
-  <EPICS_PV PV="32idcTXM:HOSTNAME"			description="TXM IOC host name" 		mne="txm_hostname"/>
-  <EPICS_PV PV="32idcTXM:ENGINEER"			description="TXM engineer" 				mne="txm_engineer"/>
+  <EPICS_PV PV="ACIS:ShutterPermit"    description="ACIS shutter permit"    mne="ACIS_general"/>
+  <EPICS_PV PV="PA:32ID:ACIS_FES_PERMIT.VAL"    description="FES permit"    mne="ACIS_FES"/>
 
+
+<!-- START REPLACE WITH 32-ID equivalent  -->
+  <EPICS_PV PV="PC:04ID:FEEPS_FES_PERMIT.VAL"    description="32-ID-A EPS"       mne="fe_eps"/>
+  <EPICS_PV PV="4ideps:A_TRIP_EXISTS"    description="32-ID-A EPS"       mne="ida_eps"/>
+  <EPICS_PV PV="PC:04ID:SBS_BLEPS_PERMIT.VAL"    description="32-ID-B EPS"   mne="idb_eps"/>
+  <EPICS_PV PV="PC:04ID:SDS_BLEPS_PERMIT.VAL"    description="32-ID-D EPS"   mne="idd_eps"/>
+  <EPICS_PV PV="PA:04ID:A_SEARCHED.VAL"    description="32-ID-A"     mne="idas"/>
+  <EPICS_PV PV="PA:04ID:B_SEARCHED.VAL"    description="32-ID-B"     mne="idbs"/>
+  <EPICS_PV PV="PA:04ID:D_SEARCHED.VAL"    description="32-ID-D"     mne="idds"/>
+  <EPICS_PV PV="PA:04ID:A_BEAM_PRESENT.VAL"       description="32-ID-A beam present"    mne="idab"/>
+  <EPICS_PV PV="PA:04ID:SBS_BLOCKING_BEAM.VAL"    description="32-ID-B blocked"      mne="idbb"/>
+  <EPICS_PV PV="PA:04ID:SDS_BLOCKING_BEAM.VAL"    description="32-ID-D blocked"      mne="iddb"/>
+<!-- END REPLACE WITH 32-ID equivalent  -->
+
+
+
+  <EPICS_PV PV="32idcTXM:TOD"         description="TXM IOC current time"            mne="TxmTime"/>
+  <EPICS_PV PV="32idcTXM:STARTTOD"    description="TXM IOC boot time"               mne="TxmBoot"/>
+  <EPICS_PV PV="32idcTXM:UPTIME"      description="TXM IOC running time"            mne="TxmRun"/>
+  <EPICS_PV PV="32idcTXM:HOSTNAME"    description="TXM IOC host name"               mne="TxmHost"/>
+  <EPICS_PV PV="32idcTXM:ENGINEER"    description="TXM engineer"                    mne="TxmEngineer"/>
+
+  <EPICS_PV PV="32idbMIR:m1.RBV"            mne="MirrorX"              description="" /> 
+  <EPICS_PV PV="32idbMIR:m2.RBV"            mne="MirrorY"              description="" /> 
+  <EPICS_PV PV="32idbMIR:seq01:text.VAL"    mne="MirrorStripe"         description="" /> 
+
+  <EPICS_PV PV="32ida:m1.VAL"               mne="DCMTheta"             description="" />  
+  <EPICS_PV PV="32ida:m2.VAL"               mne="DCMTheta2"            description="" />  
+  <EPICS_PV PV="32ida:m3.VAL"               mne="DCMChi2"              description="" />  
+  <EPICS_PV PV="32ida:m4.VAL"               mne="DCMX"                 description="" />  
+  <EPICS_PV PV="32ida:m5.VAL"               mne="DCMY"                 description="" />  
+  <EPICS_PV PV="32ida:m6.VAL"               mne="DCMX2"                description="" />  
+  <EPICS_PV PV="32ida:m7.VAL"               mne="DCMY1"                description="" />  
+  <EPICS_PV PV="32ida:m8.VAL"               mne="DCMZ2"                description="" />  
+  <EPICS_PV PV="32idb:m5.VAL"               mne="DCMFlag"              description="" />  
+
+  <EPICS_PV PV="32ida:fb.FBON.VAL"   description="Status" mne="FbStatus" display_format="%.0f"/>
+  
   <!--
   These PVs won't display properly since they are a character *waveform* PVs.
   Need to figure out how to handle this one properly.
 
-  <EPICS_PV PV="32idcTXM:ProposalNumber"	description="TXM Proposal Number" 				mne="ProposalNumber"/>
-  <EPICS_PV PV="32idcTXM:UserInfoUpdate"	description="TXM User Info Update date/time" 	mne="UserInfoUpdate"/>
+  <EPICS_PV PV="32idcTXM:ProposalNumber"  description="TXM Proposal Number"         mne="aProposalNumber"/>
+  <EPICS_PV PV="32idcTXM:UserInfoUpdate"  description="TXM User Info Update date/time"  mne="aUserInfoUpdate"/>
   -->
 
+  <EPICS_PV PV="32idcTXM:UserName"          mne="UserName"             description="" /> 
+  <EPICS_PV PV="32idcTXM:UserInstitution"   mne="UserAffiliation"      description="" />
+  <EPICS_PV PV="32idcTXM:UserBadge"         mne="UserBadge"            description="" /> 
+  <EPICS_PV PV="32idcTXM:UserEmail"         mne="UserEmail"            description="" /> 
+  <EPICS_PV PV="32idcPG3:HDF1:FileName"     mne="SampleName"           description="" />
+  <EPICS_PV PV="32idcPG3:HDF1:FilePath_RBV" mne="FilePath"             description="" />
 
-  <EPICS_PV PV="32idcTXM:mxv:c1:m3.RBV"   description="TXM CCD Camera X readback"          mne="TXM_CCD_Cam_X_RBV"     display_format="%.3f"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m3.VAL"   description="TXM CCD Camera X target"            mne="TXM_CCD_Cam_X_VAL"     display_format="%.3f"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m3.DMOV"  description="TXM CCD Camera X motor done moving" mne="TXM_CCD_Cam_X_DMOV"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m4.RBV"   description="TXM CCD Camera Y readback"          mne="TXM_CCD_Cam_Y_RBV"     display_format="%.3f"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m4.VAL"   description="TXM CCD Camera Y target"            mne="TXM_CCD_Cam_Y_VAL"     display_format="%.3f"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m4.DMOV"  description="TXM CCD Camera Y motor done moving" mne="TXM_CCD_Cam_Y_DMOV"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m6.RBV"   description="TXM CCD Camera Z readback"      mne="TXM_CCD_Cam_Z_RBV"     display_format="%.3f"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m6.VAL"   description="TXM CCD Camera Z target"      mne="TXM_CCD_Cam_Z_VAL" display_format="%.3f"/>
-  <EPICS_PV PV="32idcTXM:mxv:c1:m6.DMOV"  description="TXM CCD Camera Z motor done moving" mne="TXM_CCD_Cam_Z_DMOV"/>
+  <EPICS_PV PV="32idcTXM:ProposalNumber"    mne="ProposalNumber"       description="" /> 
+  <EPICS_PV PV="32idcTXM:ProposalTitle"     mne="ProposalTitle"        description="" /> 
 
-  <EPICS_PV PV="32idcTXM:alldone" description="all motors done moving" mne="txm_motors_alldone"/>
-  <EPICS_PV PV="32idcTXM:moving" description="number of motors moving" mne="txm_motors_moving"/>
+  <EPICS_PV PV="32idcTXM:xps:c2:m1.VAL"     mne="BeamMonitorX"         description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:nf:c0:m3.VAL"      mne="BeamMonitorY"         description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:xps:c2:m1.VAL"     mne="FilterX"              description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:xps:c1:m6.VAL"     mne="Diffuser"             description=""        display_format="%.3f"/>
+
+  <EPICS_PV PV="32idcTXM:mcs:c3:m3.VAL"     mne="BeamStopX"            description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c3:m6.VAL"     mne="BeamStopY"            description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idb:m32.VAL"              mne="CrlX"                 description=""        display_format="%.3f"/>  
+  <EPICS_PV PV="32idb:m28.VAL"              mne="CrlY"                 description=""        display_format="%.3f"/>  
+  <EPICS_PV PV="32idb:m26.VAL"              mne="CrlPitch"             description=""        display_format="%.3f"/>  
+  <EPICS_PV PV="32idb:m27.VAL"              mne="CrlYaw"               description=""        display_format="%.3f"/>  
+  <EPICS_PV PV="32idb:tblUp.Y"              mne="CrlTableY"            description=""        display_format="%.3f"/>  
+
+  <EPICS_PV PV="32idcTXM:mcs:c3:m2.VAL"     mne="CondenserYaw"         description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c3:m4.VAL"     mne="CondenserPitch"       description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:mcs:c3:m1.VAL"     mne="CondenserX"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c3:m5.VAL"     mne="CondenserY"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mxv:c1:m5.VAL"     mne="CondenserZ"           description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV= "32idcTXM:xps:c1:m3.VAL"    mne="PinHoleX"             description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:xps:c1:m4.VAL"     mne="PinHoleY"             description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:xps:c1:m5.VAL"     mne="PinHoleZ"             description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:nf:c0:m1.VAL"      mne="SampleX"              description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mxv:c1:m1.VAL"     mne="SampleY"              description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:ens:c1:m1.VAL"     mne="SampleRotary"         description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c1:m2.VAL"     mne="SampleTopX"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c1:m1.VAL"     mne="SampleTopZ"           description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:mcs:c2:m2.VAL"     mne="ZonePlateX"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idc01:m110.VAL"           mne="ZonePlateY"           description=""        display_format="%.3f"/>  
+  <EPICS_PV PV="32idcTXM:mcs:c2:m3.VAL"     mne="ZonePlateZ"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c0:m3.VAL"     mne="ZonePlate2ndX"        description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c0:m1.VAL"     mne="ZonePlate2ndY"        description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mcs:c0:m2.VAL"     mne="ZonePlate2ndZ"        description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:nf:c0:m4.VAL"      mne="BertrandX"            description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:nf:c0:m5.VAL"      mne="BertrandY"            description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:mxv:c1:m8.VAL"     mne="FlightTubeZ"          description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:mxv:c1:m3.VAL"     mne="CcdCameraX"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mxv:c1:m4.VAL"     mne="CcdCameraY"           description=""        display_format="%.3f"/> 
+  <EPICS_PV PV="32idcTXM:mxv:c1:m6.VAL"     mne="CcdCameraZ"           description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:xps:c2:m7.VAL"     mne="CcdYaw"               description=""        display_format="%.3f"/> 
+
+  <EPICS_PV PV="32idcTXM:xps:c2:m2.VAL"     mne="CcdObjective"         description=""        display_format="%.3f"/> 
+
 
 </pvwatch>

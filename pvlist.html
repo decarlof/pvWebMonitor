@@ -15,24 +15,24 @@
     <dl>
       <dt>mne</dt>
       <dd>
-  	one-word mnemonic reference used in python and xslt code
-  	(mne should be unique for each EPICS_PV)
+    one-word mnemonic reference used in python and xslt code
+    (mne should be unique for each EPICS_PV)
   </dd>
       <dt>PV</dt>
       <dd>
-  	EPICS process variable name (must be used in only one EPICS_PV)
+    EPICS process variable name (must be used in only one EPICS_PV)
   </dd>
       <dt>description</dt>
       <dd>
-  	useful text informative to others
+    useful text informative to others
   </dd>
       <dt>display_format</dt>
       <dd>
-  	(optional, default="%s") PVs will be formatted for display with this string
+    (optional, default="%s") PVs will be formatted for display with this string
   </dd>
       <dt>_ignore_</dt>
       <dd>
-  	(optional, default="false") this PV is ignored if value is not "false"
+    (optional, default="false") this PV is ignored if value is not "false"
   </dd>
     </dl>
     <table border="2">
@@ -44,137 +44,578 @@
         <th>display_format</th>
       </tr>
       <tr>
-        <td>sr_current</td>
-        <td>S:SRcurrentAI</td>
+        <td>DateTime</td>
+        <td>S:IOC:timeOfDayISO8601</td>
         <td/>
-        <td>APS Storage Ring Current, mA</td>
+        <td>Date and Time</td>
         <td/>
       </tr>
       <tr bgcolor="Azure">
-        <td>id_energy</td>
-        <td>ID32ds:Energy</td>
+        <td>Current</td>
+        <td>S:SRcurrentAI</td>
         <td/>
-        <td>32ID undulator energy, keV</td>
+        <td>APS Storage Ring Current</td>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>TopUpStatus</td>
+        <td>S:TopUpStatus</td>
+        <td/>
+        <td>APS Storage TopUp Status</td>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>SourceEnergy</td>
+        <td>ID32ds:Energy.VAL</td>
+        <td/>
+        <td>Undulator energy</td>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>SourceGap</td>
+        <td>ID32ds:Gap.VAL</td>
+        <td/>
+        <td>Undulator GAP</td>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>Energy</td>
+        <td>32ida:BraggEAO.VAL</td>
+        <td/>
+        <td>DCM energy</td>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>ACIS_general</td>
+        <td>ACIS:ShutterPermit</td>
+        <td/>
+        <td>ACIS shutter permit</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>ACIS_FES</td>
+        <td>PA:32ID:ACIS_FES_PERMIT.VAL</td>
+        <td/>
+        <td>FES permit</td>
         <td/>
       </tr>
       <tr>
-        <td>mono_energy</td>
-        <td>32ida:BraggERdbkAO</td>
+        <td>fe_eps</td>
+        <td>PC:04ID:FEEPS_FES_PERMIT.VAL</td>
         <td/>
-        <td>32ID monochromator energy, keV</td>
+        <td>32-ID-A EPS</td>
         <td/>
       </tr>
       <tr bgcolor="Azure">
-        <td>txm_tod</td>
+        <td>ida_eps</td>
+        <td>4ideps:A_TRIP_EXISTS</td>
+        <td/>
+        <td>32-ID-A EPS</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>idb_eps</td>
+        <td>PC:04ID:SBS_BLEPS_PERMIT.VAL</td>
+        <td/>
+        <td>32-ID-B EPS</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>idd_eps</td>
+        <td>PC:04ID:SDS_BLEPS_PERMIT.VAL</td>
+        <td/>
+        <td>32-ID-D EPS</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>idas</td>
+        <td>PA:04ID:A_SEARCHED.VAL</td>
+        <td/>
+        <td>32-ID-A</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>idbs</td>
+        <td>PA:04ID:B_SEARCHED.VAL</td>
+        <td/>
+        <td>32-ID-B</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>idds</td>
+        <td>PA:04ID:D_SEARCHED.VAL</td>
+        <td/>
+        <td>32-ID-D</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>idab</td>
+        <td>PA:04ID:A_BEAM_PRESENT.VAL</td>
+        <td/>
+        <td>32-ID-A beam present</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>idbb</td>
+        <td>PA:04ID:SBS_BLOCKING_BEAM.VAL</td>
+        <td/>
+        <td>32-ID-B blocked</td>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>iddb</td>
+        <td>PA:04ID:SDS_BLOCKING_BEAM.VAL</td>
+        <td/>
+        <td>32-ID-D blocked</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>TxmTime</td>
         <td>32idcTXM:TOD</td>
         <td/>
         <td>TXM IOC current time</td>
         <td/>
       </tr>
-      <tr>
-        <td>txm_starttod</td>
+      <tr bgcolor="Azure">
+        <td>TxmBoot</td>
         <td>32idcTXM:STARTTOD</td>
         <td/>
         <td>TXM IOC boot time</td>
         <td/>
       </tr>
-      <tr bgcolor="Azure">
-        <td>txm_uptime</td>
+      <tr>
+        <td>TxmRun</td>
         <td>32idcTXM:UPTIME</td>
         <td/>
-        <td>time TXM IOC running</td>
+        <td>TXM IOC running time</td>
         <td/>
       </tr>
-      <tr>
-        <td>txm_hostname</td>
+      <tr bgcolor="Azure">
+        <td>TxmHost</td>
         <td>32idcTXM:HOSTNAME</td>
         <td/>
         <td>TXM IOC host name</td>
         <td/>
       </tr>
-      <tr bgcolor="Azure">
-        <td>txm_engineer</td>
+      <tr>
+        <td>TxmEngineer</td>
         <td>32idcTXM:ENGINEER</td>
         <td/>
         <td>TXM engineer</td>
         <td/>
       </tr>
-      <tr>
-        <td>TXM_CCD_Cam_X_RBV</td>
-        <td>32idcTXM:mxv:c1:m3.RBV</td>
+      <tr bgcolor="Azure">
+        <td>MirrorX</td>
+        <td>32idbMIR:m1.RBV</td>
         <td/>
-        <td>TXM CCD Camera X readback</td>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>MirrorY</td>
+        <td>32idbMIR:m2.RBV</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>MirrorStripe</td>
+        <td>32idbMIR:seq01:text.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>DCMTheta</td>
+        <td>32ida:m1.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>DCMTheta2</td>
+        <td>32ida:m2.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>DCMChi2</td>
+        <td>32ida:m3.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>DCMX</td>
+        <td>32ida:m4.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>DCMY</td>
+        <td>32ida:m5.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>DCMX2</td>
+        <td>32ida:m6.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>DCMY1</td>
+        <td>32ida:m7.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>DCMZ2</td>
+        <td>32ida:m8.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>DCMFlag</td>
+        <td>32idb:m5.VAL</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>FbStatus</td>
+        <td>32ida:fb.FBON.VAL</td>
+        <td/>
+        <td>Status</td>
+        <td>%.0f</td>
+      </tr>
+      <tr>
+        <td>UserName</td>
+        <td>32idcTXM:UserName</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>UserAffiliation</td>
+        <td>32idcTXM:UserInstitution</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>UserBadge</td>
+        <td>32idcTXM:UserBadge</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>UserEmail</td>
+        <td>32idcTXM:UserEmail</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>SampleName</td>
+        <td>32idcPG3:HDF1:FileName</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>FilePath</td>
+        <td>32idcPG3:HDF1:FilePath_RBV</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>ProposalNumber</td>
+        <td>32idcTXM:ProposalNumber</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>ProposalTitle</td>
+        <td>32idcTXM:ProposalTitle</td>
+        <td/>
+        <td/>
+        <td/>
+      </tr>
+      <tr>
+        <td>BeamMonitorX</td>
+        <td>32idcTXM:xps:c2:m1.VAL</td>
+        <td/>
+        <td/>
         <td>%.3f</td>
       </tr>
       <tr bgcolor="Azure">
-        <td>TXM_CCD_Cam_X_VAL</td>
+        <td>BeamMonitorY</td>
+        <td>32idcTXM:nf:c0:m3.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>FilterX</td>
+        <td>32idcTXM:xps:c2:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>Diffuser</td>
+        <td>32idcTXM:xps:c1:m6.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>BeamStopX</td>
+        <td>32idcTXM:mcs:c3:m3.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>BeamStopY</td>
+        <td>32idcTXM:mcs:c3:m6.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>CrlX</td>
+        <td>32idb:m32.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>CrlY</td>
+        <td>32idb:m28.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>CrlPitch</td>
+        <td>32idb:m26.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>CrlYaw</td>
+        <td>32idb:m27.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>CrlTableY</td>
+        <td>32idb:tblUp.Y</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>CondenserYaw</td>
+        <td>32idcTXM:mcs:c3:m2.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>CondenserPitch</td>
+        <td>32idcTXM:mcs:c3:m4.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>CondenserX</td>
+        <td>32idcTXM:mcs:c3:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>CondenserY</td>
+        <td>32idcTXM:mcs:c3:m5.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>CondenserZ</td>
+        <td>32idcTXM:mxv:c1:m5.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>PinHoleX</td>
+        <td>32idcTXM:xps:c1:m3.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>PinHoleY</td>
+        <td>32idcTXM:xps:c1:m4.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>PinHoleZ</td>
+        <td>32idcTXM:xps:c1:m5.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>SampleX</td>
+        <td>32idcTXM:nf:c0:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>SampleY</td>
+        <td>32idcTXM:mxv:c1:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>SampleRotary</td>
+        <td>32idcTXM:ens:c1:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>SampleTopX</td>
+        <td>32idcTXM:mcs:c1:m2.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>SampleTopZ</td>
+        <td>32idcTXM:mcs:c1:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>ZonePlateX</td>
+        <td>32idcTXM:mcs:c2:m2.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>ZonePlateY</td>
+        <td>32idc01:m110.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>ZonePlateZ</td>
+        <td>32idcTXM:mcs:c2:m3.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>ZonePlate2ndX</td>
+        <td>32idcTXM:mcs:c0:m3.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>ZonePlate2ndY</td>
+        <td>32idcTXM:mcs:c0:m1.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>ZonePlate2ndZ</td>
+        <td>32idcTXM:mcs:c0:m2.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>BertrandX</td>
+        <td>32idcTXM:nf:c0:m4.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>BertrandY</td>
+        <td>32idcTXM:nf:c0:m5.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr>
+        <td>FlightTubeZ</td>
+        <td>32idcTXM:mxv:c1:m8.VAL</td>
+        <td/>
+        <td/>
+        <td>%.3f</td>
+      </tr>
+      <tr bgcolor="Azure">
+        <td>CcdCameraX</td>
         <td>32idcTXM:mxv:c1:m3.VAL</td>
         <td/>
-        <td>TXM CCD Camera X target</td>
+        <td/>
         <td>%.3f</td>
       </tr>
       <tr>
-        <td>TXM_CCD_Cam_X_DMOV</td>
-        <td>32idcTXM:mxv:c1:m3.DMOV</td>
-        <td/>
-        <td>TXM CCD Camera X motor done moving</td>
-        <td/>
-      </tr>
-      <tr bgcolor="Azure">
-        <td>TXM_CCD_Cam_Y_RBV</td>
-        <td>32idcTXM:mxv:c1:m4.RBV</td>
-        <td/>
-        <td>TXM CCD Camera Y readback</td>
-        <td>%.3f</td>
-      </tr>
-      <tr>
-        <td>TXM_CCD_Cam_Y_VAL</td>
+        <td>CcdCameraY</td>
         <td>32idcTXM:mxv:c1:m4.VAL</td>
         <td/>
-        <td>TXM CCD Camera Y target</td>
+        <td/>
         <td>%.3f</td>
       </tr>
       <tr bgcolor="Azure">
-        <td>TXM_CCD_Cam_Y_DMOV</td>
-        <td>32idcTXM:mxv:c1:m4.DMOV</td>
-        <td/>
-        <td>TXM CCD Camera Y motor done moving</td>
-        <td/>
-      </tr>
-      <tr>
-        <td>TXM_CCD_Cam_Z_RBV</td>
-        <td>32idcTXM:mxv:c1:m6.RBV</td>
-        <td/>
-        <td>TXM CCD Camera Z readback</td>
-        <td>%.3f</td>
-      </tr>
-      <tr bgcolor="Azure">
-        <td>TXM_CCD_Cam_Z_VAL</td>
+        <td>CcdCameraZ</td>
         <td>32idcTXM:mxv:c1:m6.VAL</td>
         <td/>
-        <td>TXM CCD Camera Z target</td>
+        <td/>
         <td>%.3f</td>
       </tr>
       <tr>
-        <td>TXM_CCD_Cam_Z_DMOV</td>
-        <td>32idcTXM:mxv:c1:m6.DMOV</td>
+        <td>CcdYaw</td>
+        <td>32idcTXM:xps:c2:m7.VAL</td>
         <td/>
-        <td>TXM CCD Camera Z motor done moving</td>
         <td/>
+        <td>%.3f</td>
       </tr>
       <tr bgcolor="Azure">
-        <td>txm_motors_alldone</td>
-        <td>32idcTXM:alldone</td>
+        <td>CcdObjective</td>
+        <td>32idcTXM:xps:c2:m2.VAL</td>
         <td/>
-        <td>all motors done moving</td>
         <td/>
-      </tr>
-      <tr>
-        <td>txm_motors_moving</td>
-        <td>32idcTXM:moving</td>
-        <td/>
-        <td>number of motors moving</td>
-        <td/>
+        <td>%.3f</td>
       </tr>
     </table>
     <hr/>

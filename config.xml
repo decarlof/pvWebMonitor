@@ -4,7 +4,7 @@
   <var name="PVLIST_FILE" 				value="pvlist.xml" />			<!-- PVs to be monitored -->
 
   <!-- http://32id.xray.aps.anl.gov/ -->
-  <var name="LOCAL_WWW_LIVEDATA_DIR" 	value="./" />					<!-- absolute directory path to WWW site on local file system -->
+  <var name="LOCAL_WWW_LIVEDATA_DIR" 	value="/home/beams/WEB32ID/www/pvWebMon/32idc" />					<!-- absolute directory path to WWW site on local file system -->
  
   <var name="LOG_INTERVAL_S" 			value="300"  type="float" />	<!-- writing messages to log file -->
 

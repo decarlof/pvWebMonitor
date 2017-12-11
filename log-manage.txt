@@ -28,3 +28,94 @@
 # [./manage.sh Wed Dec  6 15:24:23 CST 2017] started 9147: /APSshare/anaconda/x86_64/bin/pvWebMonitor
 # [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Wed Dec  6 15:25:02 CST 2017] could not identify running process 9147, starting new process
 # [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Wed Dec  6 15:25:02 CST 2017] started 4787: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 12:55:54 CST 2017] not running 4787: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:00:01 CST 2017] could not identify running process , starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:00:01 CST 2017] started 19799: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:05:01 CST 2017] could not identify running process 19799, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:05:01 CST 2017] started 20550: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:07:34 CST 2017] not running 20550: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:07:34 CST 2017] started 4911: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:08:36 CST 2017] not running 4911: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:08:36 CST 2017] started 5017: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:10:01 CST 2017] could not identify running process 5017, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:10:01 CST 2017] started 20931: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:11:09 CST 2017] not running 20931: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:15:01 CST 2017] could not identify running process , starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:15:01 CST 2017] started 21289: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:15:23 CST 2017] not running 21289: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 13:15:42 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:20:01 CST 2017] could not identify running process , starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:20:01 CST 2017] started 21643: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:50:01 CST 2017] could not identify running process 21643, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:50:01 CST 2017] started 23858: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:55:01 CST 2017] could not identify running process 23858, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 13:55:01 CST 2017] started 24509: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 14:00:01 CST 2017] could not identify running process 24509, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 14:00:01 CST 2017] started 26320: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 15:58:02 CST 2017] stopped 26320: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 15:58:21 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 15:58:48 CST 2017] started 6209: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 15:59:02 CST 2017] stopped 6209: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 16:00:01 CST 2017] could not identify running process , starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 16:00:01 CST 2017] started 6341: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:22:25 CST 2017] started 32462: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:23:05 CST 2017] stopped 32462: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:23:05 CST 2017] started 32541: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:23:25 CST 2017] stopped 32541: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:24:17 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:24:38 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 16:25:01 CST 2017] could not identify running process , starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 16:25:01 CST 2017] started 8278: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:26:02 CST 2017] stopped 8278: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:26:53 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:27:05 CST 2017] started 24211: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Fri Dec  8 16:29:29 CST 2017] started 24492: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 16:30:01 CST 2017] could not identify running process 24492, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Fri Dec  8 16:30:01 CST 2017] started 8907: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 14:02:00 CST 2017] started 12080: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+                                                                                                                                                                                                                                                                                    # [./manage.sh Sun Dec 10 14:43:38 CST 2017] not running 7073: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 14:43:38 CST 2017] started 15545: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+                                                                                                                                                                                                                                                                                     # [./manage.sh Sun Dec 10 14:46:04 CST 2017] not running 10754: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 14:46:04 CST 2017] started 15754: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+                                                                                                                                                                                                                                                                                     # [./manage.sh Sun Dec 10 14:52:11 CST 2017] not running 11497: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 14:52:11 CST 2017] started 16552: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 14:52:27 CST 2017] stopped 16552: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 14:52:27 CST 2017] started 16603: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+                                                                                                                                                                                                                                                                                     # [./manage.sh Sun Dec 10 15:01:06 CST 2017] started 17459: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Sun Dec 10 15:05:01 CST 2017] could not identify running process 17459, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Sun Dec 10 15:05:01 CST 2017] started 13084: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+                                                                                                                                                                                                                 # [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Sun Dec 10 15:10:02 CST 2017] could not identify running process , starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Sun Dec 10 15:10:02 CST 2017] started 13689: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Sun Dec 10 15:15:02 CST 2017] could not identify running process 13689, starting new process
+# [/home/beams1/USR32IDC/pvWebMonitor/manage.sh Sun Dec 10 15:15:02 CST 2017] started 14162: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:45:11 CST 2017] started 21086: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:47:10 CST 2017] stopped 21086: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:47:10 CST 2017] started 21273: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:56:17 CST 2017] stopped 21273: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:56:17 CST 2017] started 22126: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:56:26 CST 2017] stopped 22126: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 15:56:26 CST 2017] started 22164: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:28:19 CST 2017] stopped 22164: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:28:19 CST 2017] started 24902: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:40:09 CST 2017] started 26008: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:40:14 CST 2017] stopped 26008: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:40:15 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:40:17 CST 2017] not running : /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:40:19 CST 2017] started 26061: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 16:43:45 CST 2017] started 26338: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:13:38 CST 2017] stopped 26338: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:13:38 CST 2017] started 29259: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:14:38 CST 2017] stopped 29259: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:14:44 CST 2017] started 29375: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:18:22 CST 2017] stopped 29375: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:18:23 CST 2017] started 29711: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:34:02 CST 2017] stopped 29711: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 17:34:04 CST 2017] started 31108: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 18:05:13 CST 2017] stopped 31108: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 18:05:17 CST 2017] started 1479: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 18:11:12 CST 2017] stopped 1479: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 18:11:13 CST 2017] started 2032: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 18:16:21 CST 2017] stopped 2032: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 18:16:21 CST 2017] started 2538: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 19:40:57 CST 2017] stopped 2538: /APSshare/anaconda/x86_64/bin/pvWebMonitor
+# [./manage.sh Sun Dec 10 19:40:57 CST 2017] started 10074: /APSshare/anaconda/x86_64/bin/pvWebMonitor
