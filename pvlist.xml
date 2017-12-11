@@ -73,23 +73,15 @@
 
   <EPICS_PV PV="32ida:fb.FBON.VAL"   description="Status" mne="FbStatus" display_format="%.0f"/>
   
-  <!--
-  These PVs won't display properly since they are a character *waveform* PVs.
-  Need to figure out how to handle this one properly.
+  <EPICS_PV PV="32idcTXM:UserName"          mne="UserName"             description=""           as_string="true"/> 
+  <EPICS_PV PV="32idcTXM:UserInstitution"   mne="UserAffiliation"      description=""           as_string="true"/> 
+  <EPICS_PV PV="32idcTXM:UserBadge"         mne="UserBadge"            description=""           as_string="true"/> 
+  <EPICS_PV PV="32idcTXM:UserEmail"         mne="UserEmail"            description=""           as_string="true"/> 
+  <EPICS_PV PV="32idcPG3:HDF1:FileName"     mne="SampleName"           description=""           as_string="true"/> 
+  <EPICS_PV PV="32idcPG3:HDF1:FilePath_RBV" mne="FilePath"             description=""           as_string="true"/> 
 
-  <EPICS_PV PV="32idcTXM:ProposalNumber"  description="TXM Proposal Number"         mne="aProposalNumber"/>
-  <EPICS_PV PV="32idcTXM:UserInfoUpdate"  description="TXM User Info Update date/time"  mne="aUserInfoUpdate"/>
-  -->
-
-  <EPICS_PV PV="32idcTXM:UserName"          mne="UserName"             description="" /> 
-  <EPICS_PV PV="32idcTXM:UserInstitution"   mne="UserAffiliation"      description="" />
-  <EPICS_PV PV="32idcTXM:UserBadge"         mne="UserBadge"            description="" /> 
-  <EPICS_PV PV="32idcTXM:UserEmail"         mne="UserEmail"            description="" /> 
-  <EPICS_PV PV="32idcPG3:HDF1:FileName"     mne="SampleName"           description="" />
-  <EPICS_PV PV="32idcPG3:HDF1:FilePath_RBV" mne="FilePath"             description="" />
-
-  <EPICS_PV PV="32idcTXM:ProposalNumber"    mne="ProposalNumber"       description="" /> 
-  <EPICS_PV PV="32idcTXM:ProposalTitle"     mne="ProposalTitle"        description="" /> 
+  <EPICS_PV PV="32idcTXM:ProposalNumber"    mne="ProposalNumber"       description=""           as_string="true"/> 
+  <EPICS_PV PV="32idcTXM:ProposalTitle"     mne="ProposalTitle"        description=""           as_string="true"/> 
 
   <EPICS_PV PV="32idcTXM:xps:c2:m1.VAL"     mne="BeamMonitorX"         description=""        display_format="%.3f"/> 
   <EPICS_PV PV="32idcTXM:nf:c0:m3.VAL"      mne="BeamMonitorY"         description=""        display_format="%.3f"/> 
